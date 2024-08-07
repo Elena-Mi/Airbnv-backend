@@ -17,7 +17,7 @@ mongoose.set("strictQuery", false)
 const bcryptSalt = bcrypt.genSaltSync(10);
 const jwtSecret = 'jkjff8f7sdfsd8sjds9';
 
-const PORT = 4000 || process.env.port;
+const PORT =  process.env.port || 4000;
 
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
@@ -222,7 +222,9 @@ app.get('/api/bookings', async (req, res) => {
   const userData = await getUserDataFromReq(req);
   res.json(await Booking.find({user:userData.id}).populate('place'))
 })
+
+
 app.listen(PORT, () => {
-    console.log('port is listening on 4000')
+    console.log(` Example app  listening on port ${PORT}`)
 })
 
