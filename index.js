@@ -1,4 +1,4 @@
-const express = require('express');
+const express = require('express')
 const app = express();
 const cors = require('cors');
 const bcrypt = require('bcryptjs');
@@ -37,8 +37,6 @@ app.use(cors({
 mongoose
 .connect(
   process.env.MONGODB_LINK
-  
-
 )
 .then( () => console.log( 'We were connect to Mongodb'))
 .catch( (err) => console.log(err)) 
