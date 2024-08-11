@@ -30,7 +30,7 @@ app.use('/uploads', express.static(__dirname + '/uploads'));
 
 app.use(cors({
     credentials:true,
-    origin: 'https://airbnv-clone.netlify.app',
+    origin: 'https://airbnv-backend.onrender.com',
 }));
 
 
@@ -158,7 +158,7 @@ app.post('/api/places', (req,res) => {
     });
   });
   
-app.get('/api/user-places',(req, res) => {
+app.get('/api/user-places', cors(), (req, res) => {
     const {token} = req.cookies;
     jwt.verify(token, jwtSecret, {}, async (err, userData) => {
         if (err) throw err;
@@ -167,12 +167,12 @@ app.get('/api/user-places',(req, res) => {
     });
 })
 
-app.get('/api/places/:id', async (req,res) => {
+app.get('/api/places/:id', cors(), async (req,res) => {
     const {id} = req.params;
     res.json(await Place.findById(id));
  })
   
-app.put('/api/places', async (req,res) => {
+app.put('/api/places', cors(), async (req,res) => {
   const {token} = req.cookies;
   const {
     id,title,address,addedPhotos,description,perks,
@@ -194,11 +194,11 @@ app.put('/api/places', async (req,res) => {
 
   })
 })
-app.get('/api/places', async (req,res) => {
+app.get('/api/places', cors(), async (req,res) => {
   res.json( await Place.find());
 })
 
-app.post('/api/bookings', async (req, res) => {
+app.post('/api/bookings', cors(), async (req, res) => {
   const userData = await getUserDataFromReq(req);
   const {
     place, checkIn, checkOut, 
@@ -216,7 +216,7 @@ app.post('/api/bookings', async (req, res) => {
   });
 });
 
-app.get('/api/bookings', async (req, res) => {
+app.get('/api/bookings', cors(), async (req, res) => {
   const userData = await getUserDataFromReq(req);
   res.json(await Booking.find({user:userData.id}).populate('place'))
 })
