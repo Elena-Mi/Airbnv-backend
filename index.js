@@ -30,7 +30,7 @@ app.use('/uploads', express.static(__dirname + '/uploads'));
 
 app.use(cors({
     credentials:true,
-    origin: 'https://airbnv-backend-1.onrender.com',
+    origin: 'https://airbnv-backend.onrender.com',
 }));
 
 
