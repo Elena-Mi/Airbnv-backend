@@ -63,7 +63,7 @@ app.use('/api/places', placesRoute);
 
 app.use('/api/bookings', bookingRoute);
 
-app.use('/api/places', placesRoute);
+app.use('/api/places', bookingRoute);
 
 app.listen(PORT, () => {
     console.log(` Example app  listening on port ${PORT}`)
