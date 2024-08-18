@@ -1,10 +1,9 @@
 const express = require('express')
 const app = express();
-const cors = require('cors');
-import authRoute from "./routes/auth.route.js";
-import bookingRoute from "./routes/booking.route.js";
-import photoRoute from "./routes/photo.route.js";
-import placesRoute from "./routes/places.route.js"
+const postRoute = require("./routes/auth.route.js");
+const bookingRoute = require("./routes/booking.route.js");
+const photoRoute = require("./routes/photo.route.js");
+const placesRoute = require("./routes/places.route.js");
 
 const cookieParser = require('cookie-parser');
 
