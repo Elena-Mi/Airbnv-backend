@@ -5,7 +5,7 @@ const router = express.Router();
 router.post('/places', places);
 router.get('/user-places', userPlaces);
 router.get('/places/:id',placesId);
-router.put('places', putPlaces);
+router.put('/places', putPlaces);
 router.get('/places', getPlaces);
 
 export default router;
