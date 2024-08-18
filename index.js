@@ -43,19 +43,9 @@ app.get('/api/test', (req,res) => {
     res.json('test ok');
 })
 
-
-app.use("/api/register", authRoute);
-app.use("/api/login", authRoute);
-app.use("/api/profile", authRoute);
-app.use("/api/logout", authRoute);
-app.use("/api/upload-by-link, photoRoute);
-app.use("/api/upload", photoRoute);
+app.use("/api/auth", authRoute);
+app.use("/api/photo, photoRoute);
 app.use("/api/places", placesRoute);
-app.use("/api/user-places", placesRoute);
-app.use("/api/places/:id", placesRoute);
-app.use("/api/places", placesRoute);
-app.use("/api/places", placesRoute);
-app.use("/api/bookings", bookingRoute);
 app.use("/api/bookings", bookingRoute);
 
 app.listen(PORT, () => {
